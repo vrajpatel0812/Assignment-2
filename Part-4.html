@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Part-4</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border: 20px solid rgb(4, 1, 1);
+        margin: 30px;
+        background-color: #88c0d0;
+        transition: all 0.2s ease;
+      }
+
+      .box:hover {
+        border-color: #c8e426;
+      }
+
+      .box:active {
+        background-color: #2f0fb1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Box Model</h1>
+    <div class="box" id="boxElement"></div>
+
+    <script>
+      const box = document.getElementById("boxElement");
+
+      box.addEventListener("click", function () {
+        box.style.backgroundColor = getRandomColor();
+      });
+      box.addEventListener("mouseover", function () {
+        box.style.width = "100px";
+        box.style.height = "100px";
+      });
+      box.addEventListener("mouseout", function () {
+        box.style.width = "100px";
+        box.style.height = "100px";
+      });
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+  </body>
+</html>

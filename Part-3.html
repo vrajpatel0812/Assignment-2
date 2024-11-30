@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Part-3</title>
+  </head>
+  <body>
+    <h2>Manipulating the DOM</h2>
+    <ul id="List">
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ul>
+    <script>
+      const ul = document.getElementById("List");
+      window.onload = () => {
+        const newItem = document.createElement("li");
+        newItem.textContent = "Fourth item";
+        ul.appendChild(newItem);
+      };
+      ul.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+          event.target.textContent = generateRandomString(10);
+        }
+      });
+
+      function generateRandomString(length) {
+        const characters =
+          "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        let result = "";
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(
+            Math.floor(Math.random() * characters.length)
+          );
+        }
+        return result;
+      }
+    </script>
+  </body>
+</html>
